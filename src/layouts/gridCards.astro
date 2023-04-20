@@ -1,0 +1,19 @@
+---
+import Card from "../components/card.astro";
+import templateUrls from "../utils/templateUrls";
+---
+
+<div class="mx-auto mt-16 max-w-xl  lg:max-w-3xl">
+  <dl class="grid max-w-4xl grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2">
+    {
+      templateUrls().map(({title, urls}) => {
+        return (
+          <Card
+            urls={urls}
+            title={title.toUpperCase()}
+          />
+        );
+      })
+    }
+  </dl>
+</div>

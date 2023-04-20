@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  urls: links[];
+}
+
+const { title, urls } = Astro.props;
+---
+
+<section class="container">
+  <dt class="text-xl font-semibold leading-7 text-dot-light_secondary dark:text-dot-dark_secondary">
+    {title}
+  </dt>
+  <ul
+    class="rounded-lg bg-dot-bglight_secondary dark:bg-dot-bgdark_secondary mt-6 p-6 space-y-3 text-lg text-gray-400"
+  >
+    {
+      urls.map((link) => {
+        return (
+          <li class="pl-4">
+            <a 
+              href={link.url} 
+              class="hover:text-dot-bgdark_secondary hover:dark:text-dot-bglight_secondary "
+              target="_blank"
+              >
+              {link.name}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</section>

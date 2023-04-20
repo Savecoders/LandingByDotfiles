@@ -1,24 +1,114 @@
 ---
-// Component Imports
-import Button from '../components/Button.astro';
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+import date from "../data/date";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro + TailwindCSS</title>
-	</head>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro + TailwindCSS</title>
+  </head>
 
-	<body>
-		<div class="grid place-items-center h-screen content-center">
-			<Button>Tailwind Button in Astro!</Button>
-			<a href="/markdown-page" class="p-4 underline">Markdown is also supported...</a>
-		</div>
-	</body>
+  <script>
+    // Dark Mode
+    if (
+      localStorage.getItem("color-theme") === "dark" ||
+      (!("color-theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+
+    const toggleDarkMode = document.getElementById("toggleDarkMode") || {
+      addEventListener,
+    };
+    toggleDarkMode.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+      if (document.documentElement.classList.contains("dark")) {
+        localStorage.setItem("color-theme", "dark");
+      } else {
+        localStorage.setItem("color-theme", "light");
+      }
+    });
+  </script>
+
+  <body class="bg-white dark:bg-dot-bgdark py-20">
+    <main class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl lg:text-center">
+        <h2 class="text-xl font-semibold leading-8 text-dot-primary">
+          {date}
+        </h2>
+        <p
+          class="mt-2 text-3xl font-bold tracking-tight text-dot-secondary sm:text-4xl"
+        >
+          Hello, Welcome back!!
+        </p>
+        
+      </div>
+      <div class="mx-auto mt-12 max-w-xl sm:mt-20 lg:mt-24 lg:max-w-3xl">
+        <dl
+          class="grid max-w-xl grid-cols-1 gap-x-16 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16"
+        >
+					<div class="p-8 bg-dot-bgdark_secondary rounded-md">
+            <dt class="text-xl font-semibold leading-7 text-dot-secondary">
+              General Pages
+            </dt>
+            <ul class="p-3 space-y-2 text-lg text-gray-400">
+							<li><a href="">Youtube</a></li>
+							<li><a href="">Spotify</a></li>
+							<li><a href="">Discord</a></li>
+							<li><a href="">Twitch</a></li>
+							<li><a href="">Pinterest</a></li>
+						</ul>
+          </div>
+
+					<div class="p-8 bg-dot-bgdark_secondary rounded-md">
+            <dt class="text-xl font-semibold leading-7 text-dot-secondary">
+              General Pages
+            </dt>
+            <ul class="p-3 space-y-2 text-lg text-gray-400">
+							<li><a href="">Youtube</a></li>
+							<li><a href="">Spotify</a></li>
+							<li><a href="">Discord</a></li>
+							<li><a href="">Twitch</a></li>
+							<li><a href="">Pinterest</a></li>
+						</ul>
+          </div>
+
+
+					<div class="p-8 bg-dot-bgdark_secondary rounded-md">
+            <dt class="text-xl font-semibold leading-7 text-dot-secondary">
+              General Pages
+            </dt>
+            <ul class="p-3 space-y-2 text-lg text-gray-400">
+							<li><a href="">Youtube</a></li>
+							<li><a href="">Spotify</a></li>
+							<li><a href="">Discord</a></li>
+							<li><a href="">Twitch</a></li>
+							<li><a href="">Pinterest</a></li>
+						</ul>
+          </div>
+
+
+					<div class="p-8 bg-dot-bgdark_secondary rounded-md">
+            <dt class="text-xl font-semibold leading-7 text-dot-secondary">
+              General Pages
+            </dt>
+            <ul class="p-3 space-y-2 text-lg text-gray-400 ">
+							<li><a href="">Youtube</a></li>
+							<li><a href="">Spotify</a></li>
+							<li><a href="">Discord</a></li>
+							<li><a href="">Twitch</a></li>
+							<li><a href="">Pinterest</a></li>
+						</ul>
+          </div>
+
+				</dl>
+      </div>
+    </main>
+  </body>
 </html>
